@@ -1,0 +1,135 @@
+# Audio
+lib/libacdbloader.so
+lib/libacdbmapper.so
+lib/libaudcal.so
+lib/libaudioalsa.so
+lib/libaudioparsers.so
+lib/lib_iec_60958_61937.so
+
+# Bins
+bin/battery_charging
+bin/bridgemgrd
+bin/btnvtool
+bin/ds_fmc_appd
+bin/hci_qcomm_init
+bin/mm-qcamera-daemon
+bin/nl_listener
+bin/port-bridge
+bin/qseecomd
+bin/radish
+bin/rild
+bin/sapd
+bin/skytestserver
+bin/time_daemon
+bin/v4l2-qcamera-app
+
+# Camera
+lib/hw/camera.msm8660.so
+lib/libCommandSvc.so
+lib/libconfigdb.so
+lib/libdrmdiag.so
+lib/libdrmfs.so
+lib/libdrmtime.so
+lib/libdsprofile.so
+lib/libdss.so
+lib/libdsucsd.so
+lib/libgemini.so
+lib/libimage-jpeg-dec-omx-comp.so
+lib/libimage-jpeg-enc-omx-comp.so
+lib/libimage-omx-common.so
+lib/libmmipl.so
+lib/libmmjpeg.so
+lib/libmmjps.so
+lib/libmmmpo.so
+lib/libmmmpod.so
+lib/libmmstereo.so
+lib/libmmstillomx.so
+lib/liboemcamera.so
+lib/libOlaEngine.so
+
+# Chromatix
+lib/libchromatix_imx074_default_video.so
+lib/libchromatix_imx074_preview.so
+lib/libchromatix_imx074_zsl.so
+
+# Diag
+lib/libdiag.so
+
+# Firmware
+etc/firmware/cyttsp_8660_ffa.hex
+etc/firmware/cyttsp_8660_fluid_p2.hex
+etc/firmware/cyttsp_8660_fluid_p3.hex
+etc/firmware/dsps_fluid.b00
+etc/firmware/dsps_fluid.b01
+etc/firmware/dsps_fluid.b02
+etc/firmware/dsps_fluid.b03
+etc/firmware/dsps_fluid.mdt
+etc/firmware/vidc_1080p.fw
+
+# GPS
+lib/libcommondefs.so
+lib/libgps.utils.so
+lib/libloc_adapter.so
+lib/libloc_api-rpc-qc.so
+lib/libloc_eng.so
+lib/liboncrpc.so
+
+# Misc
+lib/libdsm.so
+lib/libnv.so
+lib/libnv_fusion.so
+lib/libsyslog.so
+
+# Radio
+bin/ks
+bin/netmgrd
+bin/qcks
+bin/qmiproxy
+bin/qmuxd
+bin/rmt_storage
+lib/libdsi_netctrl.so
+lib/libdsutils.so
+lib/libidl.so
+lib/libnetmgr.so
+lib/libqdi.so
+lib/libqdp.so
+lib/libqmi.so
+lib/libqmiservices.so
+lib/libqueue.so
+lib/libril-qc-qmi-1.so
+lib/libril-qcril-hook-oem.so
+lib/libril.so
+lib/libtime_genoff.so
+lib/libtime_remote_atom.so
+lib/libreference-ril.so
+lib/liboem_rapi_fusion.so
+lib/liboem_rapi.so
+
+# Sensors
+bin/geomagneticd
+bin/orientationd
+lib/hw/sensors.msm8660.so
+
+# Sky/Pantech
+lib/libcp-proccmd.so
+lib/libfotactl.so
+lib/libsky_aprlib.so
+lib/libsky_rawdata.so
+lib/libskytestclient.so
+lib/libsky_rftest.so
+
+#libs from cm-10.0 needed to start skytestserver
+lib/libbluedroid.so
+lib/libbluetooth.so
+
+# Thermald
+bin/thermald
+lib/libthermal_mitigation.so
+lib/libthermal_mitigation_fusion.so
+
+# Wi-Fi
+etc/wl/bcm43291.bin
+etc/wl/bcm43291_apsta.bin
+etc/wl/bcm43291_mfg.bin
+etc/wl/bcm43291_p2p.bin
+etc/wl/nvram.txt

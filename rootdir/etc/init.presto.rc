@@ -1,0 +1,83 @@
+#
+# Add additional services here
+#
+
+#on early-init
+
+#   mkdir /storage/usbdisk 0755 system system
+#   # for backwards compatibility
+#   symlink /storage/usbdisk /usbdisk
+#   symlink /storage/usbdisk /mnt/usbdisk
+#   export EXTERNAL_STORAGE_USB /storage/usbdisk
+
+
+on boot
+
+    # Sensor
+    chmod 755 /system/bin/geomagneticd
+    chown system input /sys/class/input/input3/enable
+    chown system input /sys/class/input/input3/delay
+    chown system input /sys/class/input/input3/wake
+    chown system input /sys/class/input/input4/enable
+    chown system input /sys/class/input/input4/delay
+    chown system input /sys/class/input/input4/wake
+    chown compass input /sys/class/input/input5/offsets
+    chown compass input /sys/class/input/input5/dynamic_matrix
+    chown system input /sys/class/input/input6/enable
+    chown system input /sys/class/input/input6/delay
+    chown system input /sys/class/input/input6/wake
+
+on post-fs-data
+
+    # Sensors
+    mkdir /data/misc/sensors 0775 root root
+    write /data/system/sensors/settings 0
+    chmod 0664 /data/system/sensors/settings
+
+    # for PrestoParts
+    chown root /proc/a2020_gain
+    chmod 0666 /proc/a2020_gain
+    chown root /sys/class/leds/keyboard-backlight/max_brightness
+    chmod 0666 /sys/class/leds/keyboard-backlight/max_brightness
+    chown root /sys/devices/virtual/bdi/179:0/read_ahead_kb
+    chmod 0666 /sys/devices/virtual/bdi/179:0/read_ahead_kb
+
+    mkdir /data/trace 0770 system system
+    mkdir /dev/pantech 0660
+    chown system system /dev/pantech
+
+#    write /sys/power/wake_lock abc
+    exec radiooptions 1
+
+    chmod 0777 /dev/aud_sub*
+
+#skytest
+service skytestserver /system/bin/skytestserver
+    class core
+    socket skytest stream 666
+    user root
+
+# mpdecision
+service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
+        class core
+        user root
+        disabled
+
+# Sensor daemon
+service orientationd /system/bin/orientationd
+    class core
+    user compass system
+    group input system
+
+service geomagneticd /system/bin/geomagneticd
+    class core
+    user compass system
+    group system input
+
+# QCOM Baseband script
+on property:dev.bootcomplete=1
+    exec /system/bin/sh /system/etc/init.qcom.baseband.sh
+
+# Write wifi and bt MACs to files
+on property:wifi.interface=wlan0
+    exec /system/bin/hwaddrs
